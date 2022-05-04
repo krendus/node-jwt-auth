@@ -13,11 +13,11 @@ app.use(cookieParser());
 
 // view engine
 app.set('view engine', 'ejs');
-
+const port = process.env.PORT;
 // database connection
 const dbURI = process.env.DBURI;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
-  .then((result) => app.listen(3000))
+  .then((result) => app.listen(port))
   .catch((err) => console.log(err));
 
 // routes
